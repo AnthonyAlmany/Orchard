@@ -1,21 +1,15 @@
-import HeaderSection from './components/HeaderSection'
-import CardsList from './components/CardsList'
+import HeaderSection from './components/HeaderSection/HeaderSection'
+import CardsList from './components/CardsList/CardsList'
+import "../src/app.css"
 
 
 function App() {
 
 
   return (
-    <div>
+    <div className='app'>
       <HeaderSection />
       <CardsList />
-      <h1>ALL THE LATEST FROM AEG</h1>
-      <h2>ANSWER YOUR BODY'S NEEDS</h2>
-      <h3>READ MORE</h3>
-      <h3>Summer Lunch Menu</h3>
-      <h4>The way ingredients are sourced</h4>
-      <h5>One of Australia's best chefs</h5>
-
     </div>
   )
 }

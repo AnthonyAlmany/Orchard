@@ -1,25 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background-color: black;
-}
-
-
 /*Import Fonts */
 @font-face {
   font-family: 'OpenSans-Light';
-  src: url('../src/assets/OpenSans/OpenSans-Light.ttf') format('truetype');
+  src: url('../src/assets/fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'OpenSans-Condensed-Light';
-  src: url('../src/assets/OpenSans_Condensed/OpenSans_Condensed-Light.ttf') format('truetype');
+  src: url('../src/assets/fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'OpenSans-Medium';
-  src: url('../src/assets/OpenSans/OpenSans-Medium.ttf') format('truetype');
+  src: url('../src/assets/fonts/OpenSans/OpenSans-Medium.ttf') format('truetype');
 }
 
 
@@ -33,9 +25,9 @@ h1 {
 
 h2 {
   font-family: 'OpenSans-Condensed-Light', Arial, sans-serif;
-  font-size: 2em;
-  font-weight: 100;
-  color: white;
+  font-size: 1.6em;
+  font-weight: 300;
+  color: rgb(222, 219, 219);
 }
 
 h3 {
@@ -49,7 +41,7 @@ h4 {
   font-family: 'OpenSans-Light', Arial, sans-serif;
   font-size: 1.1em;
   font-weight: 80;
-  color: white;
+  color: rgb(197, 197, 197);
 }
 
 h5 {
