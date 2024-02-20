@@ -10,7 +10,7 @@
 }
 
 .cards-container {
-    width: 60%;
+    /* width: 60%; */
     height: 30rem;
     display: flex;
     flex-direction: row;
@@ -24,6 +24,7 @@
     align-items: flex-start;
     gap: 2rem;
     width: 24rem;
+    transition: transform 0.3s ease;
 }
 
 .card-image img {
@@ -34,4 +35,14 @@
 .card-readmore {
     padding: 0 2px 4px 2px;
     border-bottom: 1px solid rgb(211, 1, 1);
+    cursor: pointer;
+}
+
+/* Animations */
+.card img {
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
 }

@@ -1,28 +1,54 @@
-import React from 'react'
-import './HeaderSection.css'
+import React, { useState } from 'react';
+import './HeaderSection.css';
+import Modal from 'react-modal';
 
-import Image1 from '../../assets/images/component-HeaderSection/Image-01.jpg'
-import Image1Lg from '../../assets/images/component-HeaderSection/Image-01@2x.jpg'
-import Image2 from '../../assets/images/component-HeaderSection/Image-02.jpg'
-import Image2Lg from '../../assets/images/component-HeaderSection/Image-02@2x.jpg'
-import Image3 from '../../assets/images/component-HeaderSection/Image-03.jpg'
-import Image3Lg from '../../assets/images/component-HeaderSection/Image-03@2x.jpg'
+import Image1 from '../../assets/images/component-HeaderSection/Image-01.jpg';
+import Image1Lg from '../../assets/images/component-HeaderSection/Image-01@2x.jpg';
+import Image2 from '../../assets/images/component-HeaderSection/Image-02.jpg';
+import Image2Lg from '../../assets/images/component-HeaderSection/Image-02@2x.jpg';
+import Image3 from '../../assets/images/component-HeaderSection/Image-03.jpg';
+import Image3Lg from '../../assets/images/component-HeaderSection/Image-03@2x.jpg';
 
 function HeaderSection() {
+    // Modal handlers
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const openModal = (image) => {
+        setSelectedImage(image);
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+        setSelectedImage(null);
+    };
+
     return (
         <div className='section-container'>
             <div className='grid-container'>
-                <div className="grid-item big-image">
-                    <img src={Image1} alt="image 1"></img>
-                </div>
-                <div className="grid-item">
-                    <img src={Image2} alt="image 2"></img>
-                </div>
-                <div className="grid-item">
-                    <img src={Image3} alt="image 3"></img>
-                </div>
-                <div className='grid-tem text-container'>
 
+                {/* Images Section */}
+                <div className="grid-item big-image">
+                    <img src={Image1} alt="image 1" onClick={() => openModal(Image1Lg)} />
+                </div>
+                <div className="grid-item">
+                    <img src={Image2} alt="image 2" onClick={() => openModal(Image2Lg)} />
+                </div>
+                <div className="grid-item">
+                    <img src={Image3} alt="image 3" onClick={() => openModal(Image3Lg)} />
+                </div>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    className="modal"
+                    overlayClassName="overlay"
+                >
+                    {selectedImage && <img src={selectedImage} alt="Large Image" />}
+                </Modal>
+
+                {/* Text Section */}
+                <div className='grid-item text-container'>
                     <div className='main-container'>
                         <div className='main-title'>
                             <h2>ANSWER YOUR BODY'S NEEDS</h2>
@@ -36,7 +62,6 @@ function HeaderSection() {
                             </h4>
                         </div>
                     </div>
-
                     <div className='tips-container'>
                         <div className='tips-title'>
                             <h3 className='red-font'>BE MINDFUL</h3>
@@ -45,15 +70,10 @@ function HeaderSection() {
                             <h3>Sourcing local or organic food is a good way to start being more mindful about what you're cooking and eating</h3>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-
-
         </div>
-
-    )
+    );
 }
 
-export default HeaderSection
+export default HeaderSection;
