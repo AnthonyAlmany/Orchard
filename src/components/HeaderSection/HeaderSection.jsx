@@ -44,7 +44,13 @@ function HeaderSection() {
                     className="modal"
                     overlayClassName="overlay"
                 >
-                    {selectedImage && <img src={selectedImage} alt="Large Image" />}
+                    <div className="modal-content">
+                        <button className="close-button" onClick={closeModal}>
+                            <span>&times;</span>
+                        </button>
+                        {selectedImage && <img src={selectedImage} alt="Large Image" className="modal-image" />}
+                    </div>
+
                 </Modal>
 
                 {/* Text Section */}

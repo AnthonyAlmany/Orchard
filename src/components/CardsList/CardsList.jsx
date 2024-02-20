@@ -22,7 +22,10 @@ function CardsList() {
         setModalOpen(false);
     };
 
-    console.log('Modal open state:', modalOpen);
+    // Event handler for "READ MORE" link click
+    const handleAnchorClick = (event) => {
+        console.log(event);
+    };
 
     return (
         <div className='component-wrapper'>
@@ -39,7 +42,7 @@ function CardsList() {
                                 <h5>{card.description}</h5>
                             </div>
                             <div className='card-readmore'>
-                                <h3>READ MORE</h3>
+                                <a href={`#${card.ref}`} onClick={() => handleAnchorClick(card.ref)}><h3>READ MORE</h3></a>
                             </div>
                         </div>
                     )
@@ -53,9 +56,15 @@ function CardsList() {
                 contentLabel="Image Modal"
             >
                 {/* <button onClick={closeModal}>Close Modal</button> */}
-                {selectedImage && (
-                    <img src={selectedImage} />
-                )}
+                <div className='modal-content'>
+                    <button className="close-button" onClick={closeModal}>
+                        <span>&times;</span>
+                    </button>
+                    {selectedImage && (
+                        <img src={selectedImage} className="modal-image" />
+                    )}
+                </div>
+
             </Modal>
         </div>
     )

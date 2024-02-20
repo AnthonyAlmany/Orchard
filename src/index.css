@@ -50,3 +50,27 @@ h5 {
   font-weight: 80;
   color: #bbbbbb;
 }
+
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: calc(28px + 0.5vw);
+  }
+
+  h2 {
+    font-size: calc(14px + 0.5vw);
+  }
+
+  h3 {
+    font-size: calc(10px + 0.5vw);
+  }
+
+  h4 {
+    font-size: calc(10px + 0.5vw);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: calc(18px + 0.5vw);
+  }
+}

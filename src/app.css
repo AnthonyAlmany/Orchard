@@ -11,8 +11,6 @@
     justify-content: center;
     align-items: center;
     row-gap: 14rem;
-    margin: 15rem 0;
-    height: 100dvh;
 }
 
 /* Modal */
@@ -36,5 +34,39 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+
+}
+
+.close-button span {
+    font-size: 24px;
+    color: white;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .modal {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .modal-content img {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
 
 }
