@@ -1,3 +1,13 @@
+:root {
+  --background-color: black;
+  --primary-text-color: white;
+  --secondary-text-color: rgb(197, 197, 197);
+  --third-text-color: #bbbbbb;
+  --primary-red-color: rgb(189, 5, 5);
+  --secondary-red-color: rgb(210, 0, 0);
+}
+
+
 /*Import Fonts */
 @font-face {
   font-family: 'OpenSans-Light';
@@ -20,19 +30,19 @@ h1 {
   font-family: 'OpenSans-Light', Arial, sans-serif;
   font-size: 2.6em;
   font-weight: 200;
-  color: white;
+  color: var(--primary-text-color);
 }
 
 h2 {
   font-family: 'OpenSans-Condensed-Light', Arial, sans-serif;
   font-size: 1.6em;
   font-weight: 300;
-  color: rgb(222, 219, 219);
+  color: var(--primary-text-color);
 }
 
 h3 {
   font-family: 'OpenSans-Medium', Arial, sans-serif;
-  color: white;
+  color: var(--primary-text-color);
   font-size: 1em;
   font-weight: 100;
 }
@@ -41,7 +51,7 @@ h4 {
   font-family: 'OpenSans-Light', Arial, sans-serif;
   font-size: 1.1em;
   font-weight: 80;
-  color: rgb(197, 197, 197);
+  color: var(--secondary-text-color);
 }
 
 h5,
@@ -49,7 +59,7 @@ p {
   font-family: 'OpenSans-Light', Arial, sans-serif;
   font-size: 1em;
   font-weight: 80;
-  color: #bbbbbb;
+  color: var(--third-text-color);
 }
 
 

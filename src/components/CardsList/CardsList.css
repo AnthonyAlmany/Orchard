@@ -29,7 +29,7 @@
 
 .card-image img {
     object-fit: cover;
-    border-bottom: 4px solid rgb(210, 0, 0);
+    border-bottom: 4px solid var(--secondary-red-color);
 }
 
 .card-text {
@@ -40,12 +40,12 @@
 
 .card-readmore {
     padding: 0 2px 4px 2px;
-    border-bottom: 1px solid rgb(211, 1, 1);
+    border-bottom: 1px solid var(--primary-red-color);
     cursor: pointer;
 }
 
 .card-readmore a h3:hover {
-    color: rgb(210, 0, 0);
+    color: var(--secondary-red-color);
 }
 
 /* Animations */

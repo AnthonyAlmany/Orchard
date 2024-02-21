@@ -57,11 +57,11 @@
 }
 
 .tips-text {
-    color: rgb(197, 197, 197);
+    color: var(--primary-text-color)
 }
 
 .red-font {
-    color: rgb(189, 5, 5);
+    color: var(--primary-red-color);
 }
 
 .tips-text {
