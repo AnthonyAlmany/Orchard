@@ -1,84 +1,52 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './HeaderSection.css';
+import imagesList from './HeaderData';
+import textData from './TextData';
 import Modal from 'react-modal';
 
-import Image1 from '../../assets/images/component-HeaderSection/Image-01.jpg';
-import Image1Lg from '../../assets/images/component-HeaderSection/Image-01@2x.jpg';
-import Image2 from '../../assets/images/component-HeaderSection/Image-02.jpg';
-import Image2Lg from '../../assets/images/component-HeaderSection/Image-02@2x.jpg';
-import Image3 from '../../assets/images/component-HeaderSection/Image-03.jpg';
-import Image3Lg from '../../assets/images/component-HeaderSection/Image-03@2x.jpg';
-
-function HeaderSection() {
-    // Modal handlers
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState(null);
-
-    const openModal = (image) => {
-        setSelectedImage(image);
-        setModalIsOpen(true);
-    };
-
-    const closeModal = () => {
-        setModalIsOpen(false);
-        setSelectedImage(null);
-    };
+function HeaderSection(props) {
 
     return (
-        <div className='section-container'>
-            <div className='grid-container'>
+        <section className='section-container'>
+            <section className='grid-container'>
 
-                {/* Images Section */}
-                <div className="grid-item big-image">
-                    <img src={Image1} alt="image 1" onClick={() => openModal(Image1Lg)} />
-                </div>
-                <div className="grid-item">
-                    <img src={Image2} alt="image 2" onClick={() => openModal(Image2Lg)} />
-                </div>
-                <div className="grid-item">
-                    <img src={Image3} alt="image 3" onClick={() => openModal(Image3Lg)} />
-                </div>
+                {/* Render a container with img for each collection in imagesList */}
+                {imagesList.map((collection, index) => {
+                    return (
+                        <article className={index ? "grid-item" : "grid-item big-image"} key={collection.default}>
+                            <img src={collection.image} alt={collection.default} onClick={() => props.openModal(collection.imageLg)} />
+                        </article>
+                    )
+                })}
+
+                {/* Text Section. Data imported from TextData.js */}
+                <section className='grid-item text-container'>
+                    <article className='main-container'>
+                        <h2 className='main-title'>{textData.mainTitle}</h2>
+                        <p className='main-text'>{textData.mainText}</p>
+                    </article>
+                    <article className='tips-container'>
+                        <h3 className='tips-title red-font'>{textData.tipsTitle}</h3>
+                        <p className='tips-text'>{textData.tipsText}</p>
+                    </article>
+                </section>
+
+                {/* Modal component imported from react-modal */}
                 <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
+                    isOpen={props.modalIsOpen}
+                    onRequestClose={props.closeModal}
                     className="modal"
                     overlayClassName="overlay"
                 >
                     <div className="modal-content">
-                        <button className="close-button" onClick={closeModal}>
+                        <button className="close-button" onClick={props.closeModal}>
                             <span>&times;</span>
                         </button>
-                        {selectedImage && <img src={selectedImage} alt="Large Image" className="modal-image" />}
+                        {props.selectedImage && <img src={props.selectedImage} alt="Large Image" className="modal-image" />}
                     </div>
-
                 </Modal>
-
-                {/* Text Section */}
-                <div className='grid-item text-container'>
-                    <div className='main-container'>
-                        <div className='main-title'>
-                            <h2>ANSWER YOUR BODY'S NEEDS</h2>
-                        </div>
-                        <div className='main-text'>
-                            <h4>The way ingredients are sourced affects the way we nourish our bodies.
-                                Author Mark Schatzer believes our body naturally develops an appetite for the foods and nutrients it needs to be healthy,
-                                but that artificial flavourings are getting in the way.
-                                This can be reversed by focusing on high-quality ingredients and being mindful as your appetite guides your
-                                to consume according to your body's needs.
-                            </h4>
-                        </div>
-                    </div>
-                    <div className='tips-container'>
-                        <div className='tips-title'>
-                            <h3 className='red-font'>BE MINDFUL</h3>
-                        </div>
-                        <div className='tips-text'>
-                            <h3>Sourcing local or organic food is a good way to start being more mindful about what you're cooking and eating</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </section>
+        </section>
     );
 }
 

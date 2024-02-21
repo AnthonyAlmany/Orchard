@@ -1,72 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './CardsList.css';
 import cardsData from "./CardsData";
 import Modal from 'react-modal';
 
-// Set the app element
-Modal.setAppElement('#root'); // Assuming '#root' is the ID of the root element in your HTML
+// Set the app element fixing modal issue
+Modal.setAppElement('#root');
 
-function CardsList() {
-    const [modalOpen, setModalOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState(null);
-
-    // Function to open the modal with a specific image
-    const openModal = (image) => {
-        setSelectedImage(image);
-        setModalOpen(true);
-    };
-
-    // Function to close the modal
-    const closeModal = () => {
-        setSelectedImage(null);
-        setModalOpen(false);
-    };
+function CardsList(props) {
 
     // Event handler for "READ MORE" link click
     const handleAnchorClick = (event) => {
-        console.log(event);
+        console.log(event.target)
     };
 
     return (
-        <div className='component-wrapper'>
+        <section className='component-wrapper'>
             <h1>ALL THE LATEST FROM AEG</h1>
-            <div className='cards-container'>
+            <ul className='cards-container'>
+                {/* Create a card for each object in CardsData.js */}
                 {cardsData.map(card => {
                     return (
-                        <div className='card' key={card.ref}>
+                        <li id={card.ref} className='card' key={card.ref}>
                             <div className='card-image'>
-                                <img src={card.image} alt={card.title} onClick={() => openModal(card.imageLg)} />
+                                <img src={card.image} alt={card.title} />
                             </div>
                             <div className='card-text'>
                                 <h3>{card.title}</h3>
                                 <h5>{card.description}</h5>
                             </div>
                             <div className='card-readmore'>
-                                <a href={`#${card.ref}`} onClick={() => handleAnchorClick(card.ref)}><h3>READ MORE</h3></a>
+                                <a href={`#${card.ref}`} onClick={(e) => handleAnchorClick(e)}><h3 className={card.ref}>READ MORE</h3></a>
                             </div>
-                        </div>
+                        </li>
                     )
                 })}
-            </div>
-            <Modal
-                isOpen={modalOpen}
-                onRequestClose={closeModal}
-                className="modal"
-                overlayClassName="overlay"
-                contentLabel="Image Modal"
-            >
-                {/* <button onClick={closeModal}>Close Modal</button> */}
-                <div className='modal-content'>
-                    <button className="close-button" onClick={closeModal}>
-                        <span>&times;</span>
-                    </button>
-                    {selectedImage && (
-                        <img src={selectedImage} className="modal-image" />
-                    )}
-                </div>
-
-            </Modal>
-        </div>
+            </ul>
+        </section>
     )
 }
 
