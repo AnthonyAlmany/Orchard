@@ -39,7 +39,7 @@
     width: 24rem;
 }
 
-.main-title h2 {
+.main-title {
     border-bottom: 1px solid white;
     padding-bottom: 10px;
     letter-spacing: 1px;
@@ -54,6 +54,10 @@
     margin-top: 2rem;
     opacity: 0;
     animation: fadeIn 2s ease-in-out forwards;
+}
+
+.tips-text {
+    color: rgb(197, 197, 197);
 }
 
 .red-font {
@@ -106,8 +110,17 @@
 }
 
 @media screen and (max-width: 480px) {
-    .text-container {
-        padding-left: 20px;
+    .section-container {
+        margin-top: 4rem;
+    }
 
+    .grid-container {
+        place-items: center;
+    }
+
+    .text-container {
+        width: auto;
+        text-align: center;
+        padding: 32px 8px 8px 0;
     }
 }
