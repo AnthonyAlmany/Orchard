@@ -51,6 +51,7 @@
 .close-button span {
     font-size: 24px;
     color: white;
+    background-color: transparent;
 }
 
 
@@ -69,4 +70,17 @@
 
     }
 
+}
+
+
+@media screen and (max-width: 480px) {
+    img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .app {
+        padding: 0 10px;
+    }
 }

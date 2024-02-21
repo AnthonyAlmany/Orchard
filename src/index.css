@@ -44,12 +44,21 @@ h4 {
   color: rgb(197, 197, 197);
 }
 
-h5 {
+h5,
+p {
   font-family: 'OpenSans-Light', Arial, sans-serif;
   font-size: 1em;
   font-weight: 80;
   color: #bbbbbb;
 }
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
 
 @media screen and (max-width: 1024px) {
   h1 {
